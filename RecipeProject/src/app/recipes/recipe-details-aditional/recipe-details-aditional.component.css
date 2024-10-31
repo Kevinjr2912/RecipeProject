@@ -1,0 +1,49 @@
+
+.box-information-additional {
+    height: 70px;
+    margin-top: 20px;
+    padding-bottom: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-bottom: 2px dashed black;
+  }
+  
+  .box-information-additional p {
+    font-size: 20px;
+  }
+  
+  .box-information-additional input {
+    outline: none;
+    width: 80px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #969696;
+    border-radius: 30px;
+  }
+  
+  #option-dificult, #option-category {
+    width: 100px;
+    padding: 5px;
+    text-align: center;
+    outline: none;
+    border: 1px solid #969696;
+    border-radius: 30px;
+  }
+  
+  .box-time,
+  .box-difficult,
+  .box-diners,
+  .box-category {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+    gap: 10px;
+  }
+  
+  .box-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
