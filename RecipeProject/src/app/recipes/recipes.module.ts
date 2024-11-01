@@ -7,6 +7,7 @@ import { ContentRecipeComponent } from './content-recipe/content-recipe.componen
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CategoriesComponent } from './categories/categories.component';
+import { CardRecipeComponent } from './card-recipe/card-recipe.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { CategoriesComponent } from './categories/categories.component';
     RecipeDetailsComponent,
     RecipeDetailsAditionalComponent,
     ContentRecipeComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    CardRecipeComponent
   ],
   imports: [
     CommonModule,

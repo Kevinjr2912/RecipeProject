@@ -15,4 +15,8 @@ export class RecipeService {
   public createRecipe(recipe: IRecipeSend): Observable<void> {
     return this.http.post<void>(`${this.urlAPI}/createRecipe/${recipe.id_person}`, recipe);
   }
+
+  public deteleRecipe (id_recipe: number): Observable<void> {
+    return this.http.delete<void>(`${this.urlAPI}/deleteRecipe/${id_recipe}`,{});
+  }
 }
