@@ -6,13 +6,15 @@ import { RecipeDetailsAditionalComponent } from './recipe-details-aditional/reci
 import { ContentRecipeComponent } from './content-recipe/content-recipe.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CategoriesComponent } from './categories/categories.component';
 
 @NgModule({
   declarations: [
     FormRecipeComponent,
     RecipeDetailsComponent,
     RecipeDetailsAditionalComponent,
-    ContentRecipeComponent
+    ContentRecipeComponent,
+    CategoriesComponent
   ],
   imports: [
     CommonModule,
