@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './form-recipe.component.css'
 })
 export class FormRecipeComponent {
+  sendRecipe() : void {
 
+  }
 }
