@@ -1,3 +1,5 @@
+import { IIngredientSerialization } from "./iingredient-serialization";
+
 export interface IRecipeSend {
   name_recipe: string;
   description: string;
@@ -5,6 +7,6 @@ export interface IRecipeSend {
   id_difficulty: number;
   number_portion: number;
   id_category_recipe: number;
-  ingredients: string [];
+  ingredients: IIngredientSerialization[];
   preparation: string;
 }

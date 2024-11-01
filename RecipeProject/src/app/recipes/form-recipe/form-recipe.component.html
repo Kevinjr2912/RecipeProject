@@ -18,20 +18,23 @@
   </div>
   <div class="information-main">
     <app-recipe-details 
-    (emitInformation)="sendRecipe($event)" 
-    (emitInformationAditional)="associateValue($event)"/>
+    (emitInformation)="assignMainValues($event)" 
+    (emitInformationAditional)="associateValueAditionals($event)"/>
   </div>
   <div class="box-contente-recipe">
     <app-content-recipe 
     [name_process]="'Ingredientes'" 
-    (content_process)="assignValueAttribute($event)"
+    (content_process)="assignValuesForTheProcess($event)"
     />
     <app-content-recipe 
     [name_process]="'Procedimiento'"
-    (content_process)="assignValueAttribute($event)"
+    (content_process)="assignValuesForTheProcess($event)"
     />
   </div>
-  <button id="btn-send-information-recipe">
+  <button 
+  id="btn-send-information-recipe"
+  (click)="sendRecipe()"
+  >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       class="icon icon-tabler icon-tabler-arrow-bar-up"
