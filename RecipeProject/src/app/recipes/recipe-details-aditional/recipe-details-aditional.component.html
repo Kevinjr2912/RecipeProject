@@ -6,7 +6,7 @@
     <div>
       <p>Tiempo:</p>
     </div>
-    <input type="text" />
+    <input type="text" [(ngModel)]="time" (ngModelChange)="emit()"/>
     <p>min</p>
   </div>
   <div class="box-difficult">
@@ -16,7 +16,7 @@
     <div>
       <p>Dificultad:</p>
     </div>
-    <select id="option-dificult">
+    <select id="option-dificult" [(ngModel)]="difficulty" (ngModelChange)="emit()">
       <option value="Fácil">Fácil</option>
       <option value="Intermedio">Intermedio</option>
       <option value="Difícil">Difícil</option>
@@ -29,7 +29,7 @@
     <div>
       <p>Porciones:</p>
     </div>
-    <input type="number" />
+    <input type="text" [(ngModel)]="portions" (ngModelChange)="emit()"/>
   </div>
   <div class="box-category">
     <div class="box-icon">
@@ -40,7 +40,7 @@
         Categoria:
       </p>
     </div>
-    <select id="option-category">
+    <select id="option-category" [(ngModel)]="category" (ngModelChange)="emit()">
       <option value="Postres">Postres</option>
       <option value="Ensaladas">Ensaladas</option>
       <option value="Desayunos">Desayunos</option>
