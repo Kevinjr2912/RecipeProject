@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IRecipeSend } from '../models/irecipe-send';
 import { IIngredientSerialization } from '../models/iingredient-serialization';
+import { RecipeService } from '../services/recipe.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-form-recipe',
@@ -8,10 +10,11 @@ import { IIngredientSerialization } from '../models/iingredient-serialization';
   styleUrl: './form-recipe.component.css',
 })
 export class FormRecipeComponent {
-  // Variables
+  constructor(private serviceRecipe: RecipeService) {}
 
   // We initialize the values ​​of the object
   recipeToSend: IRecipeSend = {
+    id_person: 1,
     name_recipe: '',
     description: '',
     time_duration: '',
@@ -21,7 +24,6 @@ export class FormRecipeComponent {
     ingredients: [],
     preparation: '',
   };
-
 
   // Methods
   assignMainValues({
@@ -84,23 +86,40 @@ export class FormRecipeComponent {
     } else {
       const quantityAndNameIngredient = ingredient.trim().split(' ');
       ingredientToAdd.name_ingredient = quantityAndNameIngredient[1];
-      ingredientToAdd.count_ingredient = Number(
-        quantityAndNameIngredient[0]
-      );
+      ingredientToAdd.count_ingredient = Number(quantityAndNameIngredient[0]);
       ingredientToAdd.unit_measurement = 'Entero';
       this.recipeToSend.ingredients.push(ingredientToAdd);
     }
   }
 
   handlePreparationData(preparation: string): void {
-    if(this.recipeToSend.preparation.length != 0){
-      this.recipeToSend.preparation += ',' + preparation
+    if (this.recipeToSend.preparation.length != 0) {
+      this.recipeToSend.preparation += ',' + preparation;
     } else {
-      this.recipeToSend.preparation += preparation
+      this.recipeToSend.preparation += preparation;
     }
   }
 
   sendRecipe(): void {
-    console.log(this.recipeToSend)
+    this.serviceRecipe.createRecipe(this.recipeToSend).subscribe(
+      (response) => {
+        console.log('Receta enviada exitosamente:', response);
+        Swal.fire({
+          title: 'Éxito!',
+          text: 'La receta se ha creado',
+          icon: 'success',
+          confirmButtonText: 'Aceptar',
+        });
+      },
+      (error) => {
+        console.error('Error al enviar la receta:', error);
+        Swal.fire({
+          title: 'Error!',
+          text: 'Ocurrió un problema al crear la receta.',
+          icon: 'error',
+          confirmButtonText: 'Aceptar',
+        });
+      }
+    );
   }
 }
