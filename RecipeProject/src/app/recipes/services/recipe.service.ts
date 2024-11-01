@@ -13,7 +13,6 @@ export class RecipeService {
   constructor(private http: HttpClient){}
 
   public createRecipe(recipe: IRecipeSend): Observable<void> {
-    console.log("Este es el id" + recipe.id_person)
     return this.http.post<void>(`${this.urlAPI}/createRecipe/${recipe.id_person}`, recipe);
   }
 }
