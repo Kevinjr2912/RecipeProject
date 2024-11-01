@@ -11,16 +11,38 @@ export class RecipeDetailsComponent {
   about_recipe: string = '';
 
   // Outputs
-  @Output() emit = new EventEmitter<{
+  @Output() emitInformation = new EventEmitter<{
     title_recipe: string;
     about_recipe: string;
   }>();
 
+  @Output() emitInformationAditional = new EventEmitter<{
+    time: string;
+    difficulty: string;
+    portions: string;
+    category: string;
+  }>();
+
   // Methods
-  emitter(): void {
-    this.emit.emit({
+  emit(): void {
+    this.emitInformation.emit({
       title_recipe: this.title_recipe,
       about_recipe: this.about_recipe,
     });
   }
+
+  emitProvideSon({
+    time,
+    difficulty,
+    portions,
+    category
+  }: {
+    time: string,
+    difficulty: string,
+    portions: string,
+    category: string
+  }): void {
+    this.emitInformationAditional.emit({ time: time, difficulty: difficulty, portions: portions, category: category });
+  }
+  
 }

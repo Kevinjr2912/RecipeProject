@@ -5,7 +5,7 @@
       <textarea
         placeholder="Título por el cual otros usuarios van a conoces tu receta"
         [(ngModel)]="title_recipe"
-        (ngModelChange)="emitter()"
+        (ngModelChange)="emit()"
       ></textarea>
     </div>
     <div class="box-recipe">
@@ -13,9 +13,9 @@
       <textarea 
       placeholder="Información relevante de la receta"
       [(ngModel)]="about_recipe"
-      (ngModelChange)="emitter()"
+      (ngModelChange)="emit()"
       ></textarea>
     </div>
   </div>
-  <app-recipe-details-aditional />
+  <app-recipe-details-aditional (emitInformationAditional)="emitProvideSon($event)"/>
 </div>

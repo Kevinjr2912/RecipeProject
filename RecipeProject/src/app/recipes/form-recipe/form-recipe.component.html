@@ -17,7 +17,9 @@
     </div>
   </div>
   <div class="information-main">
-    <app-recipe-details (emit)="sendRecipe($event)"/>
+    <app-recipe-details 
+    (emitInformation)="sendRecipe($event)" 
+    (emitInformationAditional)="associateValue($event)"/>
   </div>
   <div class="box-contente-recipe">
     <app-content-recipe 
