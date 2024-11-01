@@ -22,7 +22,8 @@ import { CategoriesComponent } from './categories/categories.component';
     HttpClientModule
   ],
   exports: [
-    FormRecipeComponent
+    FormRecipeComponent,
+    CategoriesComponent
   ]
 })
 export class RecipesModule { }
