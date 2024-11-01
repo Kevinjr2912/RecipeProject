@@ -1,1 +1,11 @@
-<p>list-cards-recipes works!</p>
+<div class="box-main">
+  <div class="box-recipes-published">
+    <app-categories></app-categories>
+    <div class="box-cards-recipes">
+      <app-card-recipe>
+        *ngFor="let item of recipes" [titleRecipe]="item.name_recipe"
+        [idRecipe]="item.id_recipe"
+      </app-card-recipe>
+    </div>
+  </div>
+</div>
