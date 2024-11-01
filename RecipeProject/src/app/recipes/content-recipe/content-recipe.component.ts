@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, Renderer2 } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-content-recipe',
@@ -9,8 +9,13 @@ export class ContentRecipeComponent {
 
   constructor(private renderer: Renderer2, private elementRef: ElementRef){}
 
+  // Variables
+
   // Inputs
   @Input() name_process: string = '';
+
+  // Outputs
+  @Output() content_process = new EventEmitter<{name_process: string, content: string}>
 
   // Methods
   addInput() : void {
@@ -23,9 +28,20 @@ export class ContentRecipeComponent {
     this.renderer.setAttribute(input, 'type', 'text');
     this.renderer.setAttribute(input, 'id', 'input-content');
 
+    // We save the value of each input
+    this.renderer.listen(input, 'blur', (event: any) => {
+      const content = event.target.value;
+      this.emitContent(content);
+      this.renderer.setAttribute(input, 'disabled', 'true');
+    });
+
     // We create those elements 
     this.renderer.appendChild(divContainer, input);
     this.renderer.appendChild(container, divContainer);
+  }
+
+  emitContent(content: string): void {
+    this.content_process.emit({name_process: this.name_process, content});
   }
 
 

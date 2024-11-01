@@ -20,8 +20,14 @@
     <app-recipe-details (emit)="sendRecipe($event)"/>
   </div>
   <div class="box-contente-recipe">
-    <app-content-recipe [name_process]="'Ingredientes'"/>
-    <app-content-recipe [name_process]="'Procedimiento'"/>
+    <app-content-recipe 
+    [name_process]="'Ingredientes'" 
+    (content_process)="assignValueAttribute($event)"
+    />
+    <app-content-recipe 
+    [name_process]="'Procedimiento'"
+    (content_process)="assignValueAttribute($event)"
+    />
   </div>
   <button id="btn-send-information-recipe">
     <svg
