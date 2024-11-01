@@ -15,9 +15,9 @@ export class RecipeDetailsAditionalComponent {
   // Outputs
   @Output() emitInformationAditional = new EventEmitter<{
     time: string;
-    difficulty: string;
-    portions: string;
-    category: string;
+    difficulty: number;
+    portions: number;
+    category: number;
   }>();
 
   // Methods
@@ -25,7 +25,7 @@ export class RecipeDetailsAditionalComponent {
     this.emitInformationAditional.emit({
       time: this.formatTimeDuration(this.time),
       difficulty: this.convertDifficultyToNumber(this.difficulty),
-      portions: this.portions,
+      portions: Number(this.portions),
       category: this.convertCategoryToNumber(this.category),
     });
   }
@@ -42,33 +42,33 @@ export class RecipeDetailsAditionalComponent {
     return num < 10 ? `0${num}` : `${num}`;
   }
 
-  convertDifficultyToNumber(difficulty: string): string {
+  convertDifficultyToNumber(difficulty: string): number {
     switch (difficulty) {
       case 'Fácil':
-        return '1';
+        return 1;
       case 'Intermedio':
-        return '2';
+        return 2;
       case 'Difícil':
-        return '3';
+        return 3;
       default:
-        return '';
+        return 0;
     }
   }
 
-  convertCategoryToNumber(category: string): string {
+  convertCategoryToNumber(category: string): number {
     switch (category) {
       case 'Postres':
-        return '1';
+        return 1;
       case 'Ensaladas':
-        return '2';
+        return 2;
       case 'Desayunos':
-        return '3';
+        return 3;
       case 'Comidas':
-        return '4';
+        return 4;
       case 'Bebidas':
-        return '5';
+        return 5;
       default:
-        return '';
+        return 0;
     }
   }
 }

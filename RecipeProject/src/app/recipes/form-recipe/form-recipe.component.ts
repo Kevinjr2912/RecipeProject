@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IRecipeSend } from '../models/irecipe-send';
 
 @Component({
   selector: 'app-form-recipe',
@@ -6,6 +7,23 @@ import { Component } from '@angular/core';
   styleUrl: './form-recipe.component.css',
 })
 export class FormRecipeComponent {
+
+  // Variables
+
+  // We initialize the values ​​of the object
+  recipeToSend: IRecipeSend = {
+    name_recipe: '',
+    description: '',
+    time_duration: '',
+    id_difficulty: 0,
+    number_portion: 0,
+    id_category_recipe: 0,
+    ingredients: [],
+    preparation: ''
+  }
+
+
+
   // Methods
   sendRecipe({
     title_recipe,
@@ -34,8 +52,8 @@ export class FormRecipeComponent {
     category,
   }: {
     time: string;
-    difficulty: string;
-    portions: string;
-    category: string;
+    difficulty: number;
+    portions: number;
+    category: number;
   }): void {}
 }

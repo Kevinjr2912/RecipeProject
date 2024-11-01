@@ -18,9 +18,9 @@ export class RecipeDetailsComponent {
 
   @Output() emitInformationAditional = new EventEmitter<{
     time: string;
-    difficulty: string;
-    portions: string;
-    category: string;
+    difficulty: number;
+    portions: number;
+    category: number;
   }>();
 
   // Methods
@@ -38,9 +38,9 @@ export class RecipeDetailsComponent {
     category
   }: {
     time: string,
-    difficulty: string,
-    portions: string,
-    category: string
+    difficulty: number,
+    portions: number,
+    category: number
   }): void {
     this.emitInformationAditional.emit({ time: time, difficulty: difficulty, portions: portions, category: category });
   }
