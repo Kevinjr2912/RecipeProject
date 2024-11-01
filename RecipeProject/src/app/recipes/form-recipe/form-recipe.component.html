@@ -17,13 +17,13 @@
     </div>
   </div>
   <div class="information-main">
-    <app-recipe-details />
+    <app-recipe-details (emit)="sendRecipe($event)"/>
   </div>
   <div class="box-contente-recipe">
-    <app-content-recipe />
-    <app-content-recipe />
+    <app-content-recipe [name_process]="'Ingredientes'"/>
+    <app-content-recipe [name_process]="'Procedimiento'"/>
   </div>
-  <button (click)="sendRecipe()" id="btn-send-information-recipe">
+  <button id="btn-send-information-recipe">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       class="icon icon-tabler icon-tabler-arrow-bar-up"

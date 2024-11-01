@@ -4,6 +4,7 @@ import { FormRecipeComponent } from './form-recipe/form-recipe.component';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 import { RecipeDetailsAditionalComponent } from './recipe-details-aditional/recipe-details-aditional.component';
 import { ContentRecipeComponent } from './content-recipe/content-recipe.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { ContentRecipeComponent } from './content-recipe/content-recipe.componen
     ContentRecipeComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     FormRecipeComponent

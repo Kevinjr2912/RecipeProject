@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './form-recipe.component.css'
 })
 export class FormRecipeComponent {
-  sendRecipe() : void {
-
+  sendRecipe(title_recipe: {title_recipe: string, about_recipe: string}) : void {
+    console.log(title_recipe)
   }
 }
