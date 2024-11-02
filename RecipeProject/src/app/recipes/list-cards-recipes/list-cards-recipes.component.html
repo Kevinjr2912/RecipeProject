@@ -1,11 +1,14 @@
-<div class="box-main">
-  <div class="box-recipes-published">
-    <app-categories></app-categories>
-    <div class="box-cards-recipes">
-      <app-card-recipe>
-        *ngFor="let item of recipes" [titleRecipe]="item.name_recipe"
-        [idRecipe]="item.id_recipe"
-      </app-card-recipe>
+<div class="box-recipes-published">
+    <div class="box-initial">
+        <button>Agregar nueva receta</button>
+        <app-categories></app-categories>
     </div>
+  <div class="box-cards-recipes">
+    <app-card-recipe
+      *ngFor="let recipe of recipes"
+      [idRecipe]="recipe.id_recipe"
+      [titleRecipe]="recipe.name_recipe"
+    >
+    </app-card-recipe>
   </div>
 </div>

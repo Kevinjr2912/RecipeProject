@@ -22,6 +22,7 @@ export class ListCardsRecipesComponent implements OnInit {
     this.serviceRecipe.getRecipesPublished(this.id_person).subscribe(
       (data) => {
         this.recipes = data;
+        console.log(this.recipes)
       },
       (error) => {
         console.error('Error al obtener los productos:', error);

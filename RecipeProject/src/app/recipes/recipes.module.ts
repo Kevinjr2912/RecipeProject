@@ -27,7 +27,7 @@ import { ListCardsRecipesComponent } from './list-cards-recipes/list-cards-recip
   ],
   exports: [
     FormRecipeComponent,
-    CategoriesComponent
+    ListCardsRecipesComponent
   ]
 })
 export class RecipesModule { }
