@@ -6,13 +6,19 @@ import { RecipeDetailsAditionalComponent } from './recipe-details-aditional/reci
 import { ContentRecipeComponent } from './content-recipe/content-recipe.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CategoriesComponent } from './categories/categories.component';
+import { CardRecipeComponent } from './card-recipe/card-recipe.component';
+import { ListCardsRecipesComponent } from './list-cards-recipes/list-cards-recipes.component';
 
 @NgModule({
   declarations: [
     FormRecipeComponent,
     RecipeDetailsComponent,
     RecipeDetailsAditionalComponent,
-    ContentRecipeComponent
+    ContentRecipeComponent,
+    CategoriesComponent,
+    CardRecipeComponent,
+    ListCardsRecipesComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   exports: [
-    FormRecipeComponent
+    FormRecipeComponent,
+    ListCardsRecipesComponent
   ]
 })
 export class RecipesModule { }
