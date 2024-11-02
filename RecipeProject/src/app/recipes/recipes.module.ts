@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CategoriesComponent } from './categories/categories.component';
 import { CardRecipeComponent } from './card-recipe/card-recipe.component';
 import { ListCardsRecipesComponent } from './list-cards-recipes/list-cards-recipes.component';
+import { GeneralInformationRecipeComponent } from './general-information-recipe/general-information-recipe.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ListCardsRecipesComponent } from './list-cards-recipes/list-cards-recip
     ContentRecipeComponent,
     CategoriesComponent,
     CardRecipeComponent,
-    ListCardsRecipesComponent
+    ListCardsRecipesComponent,
+    GeneralInformationRecipeComponent
   ],
   imports: [
     CommonModule,
