@@ -23,6 +23,10 @@ export class RecipeService {
     return this.http.post<ITitleRecipeReceived[]>(`${this.urlAPI}/getRecipesPublished/${id_person})`, {});
   }
 
+  public getDatailsRecipeAndPerson(id_recipe: number): Observable<any> {
+    return this.http.post<any>(`${this.urlAPI}/getInformationPersonWithRecipe/1/${id_recipe}`, {})
+  }
+
   // Methods Delete
   public deteleRecipe (id_recipe: number): Observable<void> {
     return this.http.delete<void>(`${this.urlAPI}/deleteRecipe/${id_recipe}`,{});
