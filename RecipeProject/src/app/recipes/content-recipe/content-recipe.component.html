@@ -1,10 +1,53 @@
-<div class="box-father">
+<div class="box-father" *ngIf="!flag; else processUpdate">
   <div class="box-title">
-    <h3>{{name_process}}</h3>
+    <h3>{{ name_process }}</h3>
     <div>
       <button id="btn-add-input" (click)="addInput()">+</button>
     </div>
   </div>
-  <div id="container-inputs">
-  </div>
+  <div id="container-inputs"></div>
 </div>
+
+<ng-template #processUpdate>
+  <div class="box-father" *ngIf="!isPreparation; else preparationUpdate">
+    <div class="box-title">
+      <h3>{{ name_process }}</h3>
+      <div>
+        <button id="btn-add-input" (click)="addNewInputIngredient()">+</button>
+      </div>
+    </div>
+    <div id="container-inputs">
+      <div
+        *ngFor="
+          let ingredient of arrayIngredients;
+          let i = index;
+          trackBy: trackByIndex
+        "
+      >
+        <input
+          id="input-content"
+          type="text"
+          [(ngModel)]="arrayIngredients[i]"
+        />
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #preparationUpdate>
+  <div class="box-father">
+    <div class="box-title">
+      <h3>{{ name_process }}</h3>
+      <div>
+        <button id="btn-add-input" (click)="addNewInputPreparation()">+</button>
+      </div>
+    </div>
+    <div
+      id="container-inputs"
+      *ngFor="let item of preparation; let i = index; trackBy: trackByIndex"
+    >
+      <input id="input-content" type="text" [(ngModel)]="preparation[i]"/>
+      <p>{{ preparation[i] + ' ' + i}}</p>
+    </div>
+  </div>
+</ng-template>

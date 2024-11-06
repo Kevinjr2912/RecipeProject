@@ -1,14 +1,13 @@
 <div class="box-recipes-published">
-    <div class="box-initial">
-        <button>Agregar nueva receta</button>
-        <app-categories></app-categories>
-    </div>
+  <div class="box-initial">
+    <button (click)="redirectToCreateARecipe()">Agregar nueva receta</button>
+    <app-categories (categorySelected)="onCategorySelected($event)"></app-categories>
+  </div>
   <div class="box-cards-recipes">
     <app-card-recipe
-      *ngFor="let recipe of recipes"
+      *ngFor="let recipe of filteredRecipes"
       [id_recipe]="recipe.id_recipe"
       [titleRecipe]="recipe.name_recipe"
-    >
-    </app-card-recipe>
+    ></app-card-recipe>
   </div>
 </div>

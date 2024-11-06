@@ -84,6 +84,8 @@ export class GeneralInformationRecipeComponent implements OnInit {
     this.recipe.recipe.type_difficulty = data.Recipes[0].TypeDifficulty,
     this.recipe.recipe.category_recipe = data.Recipes[0].CategoryRecipe
     this.recipe.recipe.ingredients = data.Recipes[0].Ingredients as IIngredientsReceiveSerialization[];
+
+    console.log( this.recipe.recipe.ingredients)
   }
 
   convertToMinutes(timeDuration: string): string {

@@ -1,0 +1,55 @@
+<div class="container-main">
+  <div class="information-main">
+    <app-recipe-details
+      [flag]="true"
+      [name_recipe]="recipeToUpdate.name_recipe"
+      [about]="recipeToUpdate.description"
+      [time]="recipeToUpdate.time_duration"
+      [difficulty]="recipeToUpdate.TypeDifficulty.name_type_difficulty"
+      [portion]="recipeToUpdate.number_portion"
+      [category]="recipeToUpdate.CategoryRecipe.name_type_recipe"
+      (emitInformationToUpdate)="receiveMainRecipeInformationToUpdate($event)"
+      (emitInformationAditionalToUpdate)="
+        receiveAditionalRecipeInformationToUpdate($event)
+      "
+    />
+  </div>
+  <div class="box-contente-recipe">
+    <app-content-recipe
+      #ingredientComponent
+      [name_process]="'Ingredientes'"
+      [flag]="true"
+      [isPreparation]="false"
+      [arrayIngredients]="array_ingredients"
+    ></app-content-recipe>
+
+    <app-content-recipe
+      #preparationComponent
+      [name_process]="'Preparación'"
+      [flag]="true"
+      [isPreparation]="true"
+      [preparation]="array_preparation"
+    ></app-content-recipe>
+  </div>
+  <button id="btn-send-information-recipe" (click)="updateRecipe()">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="icon icon-tabler icon-tabler-arrow-bar-up"
+      width="40"
+      height="40"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="#2c3e50"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 4l0 10" />
+      <path d="M12 4l4 4" />
+      <path d="M12 4l-4 4" />
+      <path d="M4 20l16 0" />
+    </svg>
+    <p>Actualizar receta</p>
+  </button>
+</div>

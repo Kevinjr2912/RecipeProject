@@ -16,10 +16,13 @@ export class InformationContentComponent implements OnChanges {
     if (changes['ingredients'] && this.ingredients.length > 0) {
       this.ingredientsFormat = [];
       this.ingredients.forEach((ingredient) => {
-        if (ingredient.RecipeIngredient.unit_measurement !== 'Entero') {
-          const formatted = `${ingredient.RecipeIngredient.count_ingredient} ${ingredient.RecipeIngredient.unit_measurement} de ${ingredient.name_ingredient}`;
-          this.ingredientsFormat.push(formatted);
+        let formatted;
+        if (ingredient.RecipeIngredient.unit_measurement === 'Entero') {
+          formatted = `${ingredient.RecipeIngredient.count_ingredient} ${ingredient.name_ingredient}`;
+        } else {
+          formatted = `${ingredient.RecipeIngredient.count_ingredient} ${ingredient.RecipeIngredient.unit_measurement} de ${ingredient.name_ingredient}`;
         }
+        this.ingredientsFormat.push(formatted);
       });
     }
   }

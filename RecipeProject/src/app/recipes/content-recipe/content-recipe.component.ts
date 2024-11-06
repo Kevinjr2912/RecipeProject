@@ -1,27 +1,43 @@
-import { Component, ElementRef, EventEmitter, Input, Output, Renderer2 } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  Renderer2,
+} from '@angular/core';
 
 @Component({
   selector: 'app-content-recipe',
   templateUrl: './content-recipe.component.html',
-  styleUrl: './content-recipe.component.css'
+  styleUrl: './content-recipe.component.css',
 })
 export class ContentRecipeComponent {
-
-  constructor(private renderer: Renderer2, private elementRef: ElementRef){}
+  constructor(private renderer: Renderer2, private elementRef: ElementRef) {}
 
   // Variables
   content: string = '';
 
   // Inputs
+  @Input() flag: boolean = false;
+  @Input() isPreparation: boolean = false;
   @Input() name_process: string = '';
+  @Input() arrayIngredients: string[] = [];
+  @Input() preparation: string[] = [];
 
   // Outputs
-  @Output() content_process = new EventEmitter<{name_process: string, content: string}>
+
+  // ---------------------- Create -------------------------
+  @Output() content_process = new EventEmitter<{
+    name_process: string;
+    content: string;
+  }>();
 
   // Methods
-  addInput() : void {
+  addInput(): void {
     // Variables that we associate with DOM elements
-    const container = this.elementRef.nativeElement.querySelector('#container-inputs');
+    const container =
+    this.elementRef.nativeElement.querySelector('#container-inputs');
     const divContainer = this.renderer.createElement('div');
     const input = this.renderer.createElement('input');
 
@@ -29,7 +45,7 @@ export class ContentRecipeComponent {
     this.renderer.setAttribute(input, 'type', 'text');
     this.renderer.setAttribute(input, 'id', 'input-content');
 
-    // We create those elements 
+    // We create those elements
     this.renderer.appendChild(divContainer, input);
     this.renderer.appendChild(container, divContainer);
 
@@ -37,20 +53,43 @@ export class ContentRecipeComponent {
     this.renderer.listen(input, 'blur', (event: any) => {
       this.content = event.target.value;
 
-      if(!this.content){
-        alert('Ingresa valores, no puede quedar vacío')
+      if (!this.content) {
+        alert('Ingresa valores, no puede quedar vacío');
       } else {
         this.emitContent(this.content);
         this.renderer.setAttribute(input, 'disabled', 'true');
         this.content = '';
       }
-
     });
   }
 
   emitContent(content: string): void {
-    this.content_process.emit({name_process: this.name_process, content});
+    this.content_process.emit({ name_process: this.name_process, content });
+  }  
+
+  addNewInputIngredient(): void {
+    this.arrayIngredients.push('');
+    
   }
 
+  addNewInputPreparation(): void {
+    console.log('Antes de agregar:', this.preparation);
+    this.preparation.push('');
+    console.log('Después de agregar:', this.preparation); 
+  }
+  
+  trackByIndex(index: number, obj: any): any {
+    return index;
+  }
 
+  sendIngredients(): string[] {
+    return this.arrayIngredients;
+    
+  }
+
+  sendPreparation(): string[] {
+    return this.preparation;
+  }
+
+  
 }

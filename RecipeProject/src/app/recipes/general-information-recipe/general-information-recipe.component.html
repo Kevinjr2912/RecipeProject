@@ -8,13 +8,15 @@
       [portions]="recipe.recipe.number_portion"
       [category]="recipe.recipe.category_recipe.name_type_recipe"
     />
-    <app-information-content
-      [flag]="false"
-      [ingredients]="recipe.recipe.ingredients"
-    />
-    <app-information-content
-      [flag]="true"
-      [preparation]="recipe.recipe.preparation"
-    />
+    <div class="box-content">
+      <app-information-content
+        [flag]="false"
+        [ingredients]="recipe.recipe.ingredients"
+      />
+      <app-information-content
+        [flag]="true"
+        [preparation]="recipe.recipe.preparation"
+      />
+    </div>
   </div>
 </div>

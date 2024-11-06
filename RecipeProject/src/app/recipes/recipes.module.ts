@@ -12,6 +12,7 @@ import { ListCardsRecipesComponent } from './list-cards-recipes/list-cards-recip
 import { GeneralInformationRecipeComponent } from './general-information-recipe/general-information-recipe.component';
 import { MainInformationRecipeComponent } from './main-information-recipe/main-information-recipe.component';
 import { InformationContentComponent } from './information-content/information-content.component';
+import { FormUpdateRecipeComponent } from './form-update-recipe/form-update-recipe.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { InformationContentComponent } from './information-content/information-c
     ListCardsRecipesComponent,
     GeneralInformationRecipeComponent,
     MainInformationRecipeComponent,
-    InformationContentComponent
+    InformationContentComponent,
+    FormUpdateRecipeComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +36,8 @@ import { InformationContentComponent } from './information-content/information-c
   exports: [
     FormRecipeComponent,
     ListCardsRecipesComponent,
-    MainInformationRecipeComponent
+    MainInformationRecipeComponent,
+    FormUpdateRecipeComponent
   ]
 })
-export class RecipesModule { }
+export class RecipesModule {}

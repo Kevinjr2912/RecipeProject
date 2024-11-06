@@ -1,4 +1,4 @@
-<div class="box-main">
+<div class="box-main" *ngIf="!flag; else updateContent">
   <div class="b-info-main">
     <div class="box-recipe">
       <label>Título de la receta: </label>
@@ -10,12 +10,45 @@
     </div>
     <div class="box-recipe">
       <label>Acerca de la receta: </label>
-      <textarea 
-      placeholder="Información relevante de la receta"
-      [(ngModel)]="about_recipe"
-      (ngModelChange)="emit()"
+      <textarea
+        placeholder="Información relevante de la receta"
+        [(ngModel)]="about_recipe"
+        (ngModelChange)="emit()"
       ></textarea>
     </div>
   </div>
-  <app-recipe-details-aditional (emitInformationAditional)="emitProvideSon($event)"/>
+  <app-recipe-details-aditional
+    (emitInformationAditional)="emitProvideSon($event)"
+  />
 </div>
+
+<ng-template #updateContent>
+  <div class="box-main">
+    <div class="b-info-main">
+      <div class="box-recipe">
+        <label>Título de la receta: </label>
+        <textarea
+          placeholder="Título por el cual otros usuarios van a conoces tu receta"
+          [(ngModel)]="name_recipe"
+          (ngModelChange)="emitUpdateInformationMain()"
+        ></textarea>
+      </div>
+      <div class="box-recipe">
+        <label>Acerca de la receta: </label>
+        <textarea
+          placeholder="Información relevante de la receta"
+          [(ngModel)]="about"
+          (ngModelChange)="emitUpdateInformationMain()"
+        ></textarea>
+      </div>
+    </div>
+    <app-recipe-details-aditional
+      [flag]="true"
+      [time_receive]="time"
+      [difficulty_receive]="difficulty"
+      [portion_receive]="portion"
+      [category_receive]="category"
+      (emitUpdateInformationAditional)="emitProvideSonToUpdate($event)"
+    />
+  </div>
+</ng-template>
