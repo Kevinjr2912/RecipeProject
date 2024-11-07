@@ -3,6 +3,8 @@ import { RecipeService } from '../services/recipe.service';
 import { ActivatedRoute } from '@angular/router';
 import { IRecipeAndUserSerialization } from '../models/irecipe-and-user-serialization';
 import { IIngredientsReceiveSerialization } from '../models/iingredients-receive-serialization';
+import { CommentService } from '../../comments/Services/comment.service';
+import { ICommentSerialization } from '../../comments/models/icomment-serialization';
 
 @Component({
   selector: 'app-general-information-recipe',
@@ -12,11 +14,13 @@ import { IIngredientsReceiveSerialization } from '../models/iingredients-receive
 export class GeneralInformationRecipeComponent implements OnInit {
   constructor(
     private serviceRecipe: RecipeService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private serviceComment: CommentService
   ) {}
 
   // Variables
   id_recipe: number = 0;
+  id_person: number = 3;
   recipe: IRecipeAndUserSerialization = {
     person: {
       first_name_person: '',
@@ -45,6 +49,7 @@ export class GeneralInformationRecipeComponent implements OnInit {
       ingredients: [],
     },
   };
+  comments: ICommentSerialization[] = [];
 
   // Methods
   ngOnInit(): void {
@@ -52,6 +57,7 @@ export class GeneralInformationRecipeComponent implements OnInit {
     if (id_recipe) {
       this.id_recipe = +id_recipe;
       this.getDetails(this.id_recipe);
+      this.getAllComments(this.id_recipe);
     }
   }
 
@@ -65,6 +71,20 @@ export class GeneralInformationRecipeComponent implements OnInit {
       }
     );
   }
+
+
+  getAllComments(id_recipe: number){
+    this.serviceComment.getAllCommentsRecipe(id_recipe).subscribe(
+      (response) => {
+        console.log(response)
+        this.comments = response;
+      },
+      (error) => {
+        console.log("Error: " + error)
+      }
+    )
+  }
+
 
   associateValues(data: any): void {
     // We associate certain data values with person attributes

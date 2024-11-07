@@ -1,9 +1,32 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ICommentSerialization } from '../models/icomment-serialization';
+import { ICommentSendSerialization } from '../models/icomment-send-serialization';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CommentService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  private urlAPI = 'http://localhost:3000/comments';
+
+  //Methods create
+  public createComment(comment: ICommentSendSerialization): Observable<void> {
+    return this.http.post<void>(
+      `${this.urlAPI}/createComment/${comment.id_recipe}/${comment.id_person}`,
+      { response: comment.response }
+    );
+  }
+  
+
+  // Methods read
+  public getAllCommentsRecipe(id_recipe: number): Observable<ICommentSerialization[]> {
+    return this.http.post<ICommentSerialization[]>(
+      `${this.urlAPI}/getAllComments/${id_recipe}`,
+      {}
+    );
+  }
 }

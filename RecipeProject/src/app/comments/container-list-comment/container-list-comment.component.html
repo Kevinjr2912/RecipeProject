@@ -1,1 +1,13 @@
-<p>container-list-comment works!</p>
+<div class="container-comments">
+  <div class="main">
+    <h2>Comentarios</h2>
+    <button (click)="setFlag()">Agregar comentario</button>
+  </div>
+  <app-container-comment *ngFor="let comment of comments" [comment]="comment" />
+
+  <div >
+    <app-receive-comment *ngIf="flag == true"
+        (res)="receiveResponse($event)"
+    />
+  </div>
+</div>
