@@ -93,7 +93,7 @@ export class FormUpdateRecipeComponent implements OnInit {
 
     this.serviceRecipe.updateInformationRecipe(this.id_recipe, this.recipeSendToUpdate).subscribe(
       (response) => {
-        console.log('Receta enviada exitosamente:', response);
+        console.log('Receta actualizada:', response);
         Swal.fire({
           title: 'Éxito!',
           text: 'La receta se ha creado',

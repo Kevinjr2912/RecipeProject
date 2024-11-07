@@ -1,0 +1,16 @@
+.container-input {
+  width: 84.5vw;
+  padding: 20px;
+  border-radius: 30px;
+  border: 2px solid rgb(197, 197, 197);
+  box-shadow: 1px 1px 4px #9d9d9d;
+}
+
+.container-input input {
+    width: 83vw;
+    padding: 10px;
+    outline: none;
+    border: none;
+    background-color: rgb(197, 197, 197);
+    border: 20px;
+}

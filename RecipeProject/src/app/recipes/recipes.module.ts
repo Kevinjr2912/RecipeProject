@@ -13,6 +13,7 @@ import { GeneralInformationRecipeComponent } from './general-information-recipe/
 import { MainInformationRecipeComponent } from './main-information-recipe/main-information-recipe.component';
 import { InformationContentComponent } from './information-content/information-content.component';
 import { FormUpdateRecipeComponent } from './form-update-recipe/form-update-recipe.component';
+import { CommentsModule } from '../comments/comments.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { FormUpdateRecipeComponent } from './form-update-recipe/form-update-reci
   imports: [
     CommonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CommentsModule
   ],
   exports: [
     FormRecipeComponent,
