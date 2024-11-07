@@ -9,7 +9,7 @@ import { IRecipeReceiveeToUpdate } from '../models/irecipe-receivee-to-update';
   providedIn: 'root',
 })
 export class RecipeService {
-  private urlAPI = 'http://localhost:3000/recipes';
+  private urlAPI = 'http://54.173.47.98/recipes';
 
   constructor(private http: HttpClient) {}
 
