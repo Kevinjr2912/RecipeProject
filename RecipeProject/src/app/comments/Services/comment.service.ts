@@ -11,7 +11,7 @@ export class CommentService {
 
   constructor(private http: HttpClient) { }
 
-  private urlAPI = 'http://localhost:3000/comments';
+  private urlAPI = 'http://54.173.47.98/comments';
 
   //Methods create
   public createComment(comment: ICommentSendSerialization): Observable<void> {
