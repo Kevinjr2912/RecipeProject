@@ -1,0 +1,20 @@
+.box-information2-recipe {
+  margin-top: 50px;
+}
+
+.box-ingredients,
+.box-process {
+  padding: 20px;
+  word-wrap: break-word;
+}
+
+.box-ingredients h2,
+.box-process h2 {
+  margin-bottom: 20px;
+}
+
+.box-ingredients ul li,
+.box-process ul li {
+  font-size: 20px;
+  margin-bottom: 20px;
+}

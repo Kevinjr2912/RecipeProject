@@ -9,6 +9,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { CategoriesComponent } from './categories/categories.component';
 import { CardRecipeComponent } from './card-recipe/card-recipe.component';
 import { ListCardsRecipesComponent } from './list-cards-recipes/list-cards-recipes.component';
+import { GeneralInformationRecipeComponent } from './general-information-recipe/general-information-recipe.component';
+import { MainInformationRecipeComponent } from './main-information-recipe/main-information-recipe.component';
+import { InformationContentComponent } from './information-content/information-content.component';
+import { FormUpdateRecipeComponent } from './form-update-recipe/form-update-recipe.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { ListCardsRecipesComponent } from './list-cards-recipes/list-cards-recip
     ContentRecipeComponent,
     CategoriesComponent,
     CardRecipeComponent,
-    ListCardsRecipesComponent
+    ListCardsRecipesComponent,
+    GeneralInformationRecipeComponent,
+    MainInformationRecipeComponent,
+    InformationContentComponent,
+    FormUpdateRecipeComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +35,9 @@ import { ListCardsRecipesComponent } from './list-cards-recipes/list-cards-recip
   ],
   exports: [
     FormRecipeComponent,
-    ListCardsRecipesComponent
+    ListCardsRecipesComponent,
+    MainInformationRecipeComponent,
+    FormUpdateRecipeComponent
   ]
 })
-export class RecipesModule { }
+export class RecipesModule {}

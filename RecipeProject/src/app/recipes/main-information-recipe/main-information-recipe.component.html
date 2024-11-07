@@ -1,0 +1,88 @@
+<div class="box-information1-recipe">
+  <div class="box-main-part">
+    <div class="box-user">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="icon icon-tabler icon-tabler-user-circle"
+        width="52"
+        height="52"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="#000000"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+        <path d="M12 10m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+        <path
+          d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855"
+        />
+      </svg>
+      <h3>
+        Kevin Jimmy Morales Pérez
+        <!-- {{ recipe.first_name_person }}{{ recipe.middle_name_person
+          }}{{ recipe.first_surname_person
+          }}{{ recipe.middle_surname_person }} -->
+      </h3>
+    </div>
+    <div class="box-title">
+       <h1>
+        {{ name_recipe }}
+       </h1>
+    </div>
+  </div>
+  <div class="box-main-secundary">
+    <div class="box-img">
+      <img src="assets/img/Cards_example.png" alt="" />
+    </div>
+    <div class="box-about-recipe">
+      <div class="box-information-about">
+        <p>
+          {{ description }}
+        </p>
+      </div>
+      <div class="box-information-additional">
+        <div class="box-time">
+          <div class="box-icon">
+            <span class="material-icons"> watch_later </span>
+          </div>
+          <div>
+            <p>
+               Tiempo: <span>{{ time }}</span> min
+            </p>
+          </div>
+        </div>
+        <div class="box-difficult">
+          <div class="box-icon">
+            <span class="material-icons"> signal_cellular_alt </span>
+          </div>
+          <div>
+            <p>
+              Dificultad: <span>{{ difficulty }}</span>
+            </p>
+          </div>
+        </div>
+        <div class="box-diners">
+          <div class="box-icon">
+            <span class="material-icons"> group </span>
+          </div>
+          <div>
+            <p>
+              Porciones: <span>{{ portions }}</span>
+            </p>
+          </div>
+        </div>
+        <div class="box-category">
+          <div class="box-icon">
+            <span class="material-icons"> category </span>
+          </div>
+          <div>
+            <p>Categoria: <span>{{ category }}</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

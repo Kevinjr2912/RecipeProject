@@ -18,6 +18,7 @@
   </div>
   <div class="information-main">
     <app-recipe-details 
+    [flag]="false"
     (emitInformation)="assignMainValues($event)" 
     (emitInformationAditional)="associateValueAditionals($event)"/>
   </div>
@@ -25,10 +26,12 @@
     <app-content-recipe 
     [name_process]="'Ingredientes'" 
     (content_process)="assignValuesForTheProcess($event)"
+    [flag]="false"
     />
     <app-content-recipe 
     [name_process]="'Procedimiento'"
     (content_process)="assignValuesForTheProcess($event)"
+    [flag]="false"
     />
   </div>
   <button 

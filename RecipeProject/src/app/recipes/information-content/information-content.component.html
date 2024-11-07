@@ -1,0 +1,21 @@
+<div class="box-information2-recipe">
+  <div class="box-ingredients" *ngIf="!flag; else process">
+    <h2>Ingredientes</h2>
+    <ul>
+      <li *ngFor="let item of ingredientsFormat">
+        {{ item }}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<ng-template #process>
+  <div class="box-process">
+    <h2>Preparación</h2>
+    <ul>
+      <li *ngFor="let step of preparation.split(',')">
+        {{ step.trim() }}
+      </li>
+    </ul>
+  </div>
+</ng-template>

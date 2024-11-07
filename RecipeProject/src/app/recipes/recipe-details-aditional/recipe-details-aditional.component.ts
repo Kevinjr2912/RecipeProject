@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-recipe-details-aditional',
@@ -12,13 +12,30 @@ export class RecipeDetailsAditionalComponent {
   portions: string = '';
   category: string = '';
 
+  // Inputs
+  @Input() flag: boolean = false;
+  @Input() time_receive: string = '';
+  @Input() difficulty_receive: string = '';
+  @Input() portion_receive: number = 0;
+  @Input() category_receive: string = '';
+
   // Outputs
+
+  // -------------------- Create ------------------------
   @Output() emitInformationAditional = new EventEmitter<{
     time: string;
     difficulty: number;
     portions: number;
     category: number;
   }>();
+
+  // -------------------- Update ------------------------
+  @Output() emitUpdateInformationAditional = new EventEmitter<{
+    time_update: string;
+    difficulty_update: number;
+    portions_update: number;
+    category_update: number;
+  }>
 
   // Methods
   emit(): void {
@@ -27,6 +44,15 @@ export class RecipeDetailsAditionalComponent {
       difficulty: this.convertDifficultyToNumber(this.difficulty),
       portions: Number(this.portions),
       category: this.convertCategoryToNumber(this.category),
+    });
+  }
+
+  emitUpdate(): void {
+    this.emitUpdateInformationAditional.emit({
+      time_update: this.formatTimeDuration(this.time_receive),
+      difficulty_update: this.convertDifficultyToNumber(this.difficulty_receive),
+      portions_update: this.portion_receive,
+      category_update: this.convertCategoryToNumber(this.category_receive)
     });
   }
 

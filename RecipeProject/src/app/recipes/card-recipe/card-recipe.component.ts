@@ -10,20 +10,20 @@ import Swal from 'sweetalert2';
 })
 export class CardRecipeComponent {
   @Input() titleRecipe: string = '';
-  @Input() idRecipe: number = 0;
+  @Input() id_recipe: number = 0;
 
   constructor(private serviceRecipe: RecipeService, private router: Router){}
 
   redirectToRecipeInformation(): void {
-    this.router.navigate(['/seeRecipeToInformation', this.idRecipe]);
+    this.router.navigate(['/seeInformationRecipe', this.id_recipe]);
   }
 
   redirectToUpdateRecipe(): void {
-    this.router.navigate(['/updateRecipe', this.idRecipe]);
+    this.router.navigate(['/updateRecipe', this.id_recipe]);
   }
 
   deleteRecipe(){
-    this.serviceRecipe.deteleRecipe(this.idRecipe).subscribe(
+    this.serviceRecipe.deteleRecipe(this.id_recipe).subscribe(
       (data) => {
         Swal.fire({
           title: 'Éxito!',

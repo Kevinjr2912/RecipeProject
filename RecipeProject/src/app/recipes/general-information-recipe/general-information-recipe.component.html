@@ -1,0 +1,22 @@
+<div class="box-main-info">
+  <div class="box-submain-content-recipe">
+    <app-main-information-recipe
+      [name_recipe]="recipe.recipe.name_recipe"
+      [description]="recipe.recipe.description"
+      [time]="recipe.recipe.time_duration"
+      [difficulty]="recipe.recipe.type_difficulty.name_type_difficulty"
+      [portions]="recipe.recipe.number_portion"
+      [category]="recipe.recipe.category_recipe.name_type_recipe"
+    />
+    <div class="box-content">
+      <app-information-content
+        [flag]="false"
+        [ingredients]="recipe.recipe.ingredients"
+      />
+      <app-information-content
+        [flag]="true"
+        [preparation]="recipe.recipe.preparation"
+      />
+    </div>
+  </div>
+</div>

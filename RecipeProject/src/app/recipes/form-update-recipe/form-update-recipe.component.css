@@ -1,0 +1,41 @@
+.container-main {
+  width: 90vw;
+  min-height: 100vh;
+  background: rgb(211, 211, 211);
+  background: linear-gradient(
+    260deg,
+    rgba(211, 211, 211, 1) 0%,
+    rgba(216, 216, 216, 1) 100%
+  );
+  margin-left: 4.5%;
+  margin-top: 70px;
+  margin-bottom: 100px;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 2px 1px 7px #9d9d9d;
+  display: flex;
+  flex-direction: column;
+}
+
+.box-contente-recipe {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#btn-send-information-recipe {
+  width: 200px;
+  font-size: 15px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 30px;
+  background-color: #b9b9b9;
+  margin: 50px auto;
+}
+
+#btn-send-information-recipe:hover {
+  cursor: pointer;
+  background-color: rgb(229, 232, 235);
+}

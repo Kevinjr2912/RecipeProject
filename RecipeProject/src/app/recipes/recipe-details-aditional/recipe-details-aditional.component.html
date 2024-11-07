@@ -1,4 +1,4 @@
-<div class="box-information-additional">
+<div class="box-information-additional" *ngIf="!flag; else updateInformation">
   <div class="box-time">
     <div class="box-icon">
       <span class="material-icons"> watch_later </span>
@@ -6,7 +6,7 @@
     <div>
       <p>Tiempo:</p>
     </div>
-    <input type="text" [(ngModel)]="time" (ngModelChange)="emit()"/>
+    <input type="text" [(ngModel)]="time" (ngModelChange)="emit()" />
     <p>min</p>
   </div>
   <div class="box-difficult">
@@ -16,7 +16,11 @@
     <div>
       <p>Dificultad:</p>
     </div>
-    <select id="option-dificult" [(ngModel)]="difficulty" (ngModelChange)="emit()">
+    <select
+      id="option-dificult"
+      [(ngModel)]="difficulty"
+      (ngModelChange)="emit()"
+    >
       <option value="Fácil">Fácil</option>
       <option value="Intermedio">Intermedio</option>
       <option value="Difícil">Difícil</option>
@@ -29,18 +33,20 @@
     <div>
       <p>Porciones:</p>
     </div>
-    <input type="text" [(ngModel)]="portions" (ngModelChange)="emit()"/>
+    <input type="text" [(ngModel)]="portions" (ngModelChange)="emit()" />
   </div>
   <div class="box-category">
     <div class="box-icon">
       <span class="material-icons"> category </span>
     </div>
     <div>
-      <p>
-        Categoria:
-      </p>
+      <p>Categoria:</p>
     </div>
-    <select id="option-category" [(ngModel)]="category" (ngModelChange)="emit()">
+    <select
+      id="option-category"
+      [(ngModel)]="category"
+      (ngModelChange)="emit()"
+    >
       <option value="Postres">Postres</option>
       <option value="Ensaladas">Ensaladas</option>
       <option value="Desayunos">Desayunos</option>
@@ -49,3 +55,71 @@
     </select>
   </div>
 </div>
+
+<ng-template #updateInformation>
+  <div class="box-information-additional">
+    <div class="box-time">
+      <div class="box-icon">
+        <span class="material-icons"> watch_later </span>
+      </div>
+      <div>
+        <p>Tiempo:</p>
+      </div>
+      <input
+        type="text"
+        [(ngModel)]="time_receive"
+        (ngModelChange)="emitUpdate()"
+      />
+      <p>min</p>
+    </div>
+    <div class="box-difficult">
+      <div class="box-icon">
+        <span class="material-icons"> signal_cellular_alt </span>
+      </div>
+      <div>
+        <p>Dificultad:</p>
+      </div>
+      <select
+        id="option-dificult"
+        [(ngModel)]="difficulty_receive"
+        (ngModelChange)="emitUpdate()"
+      >
+        <option value="Fácil">Fácil</option>
+        <option value="Intermedio">Intermedio</option>
+        <option value="Difícil">Difícil</option>
+      </select>
+    </div>
+    <div class="box-diners">
+      <div class="box-icon">
+        <span class="material-icons"> group </span>
+      </div>
+      <div>
+        <p>Porciones:</p>
+      </div>
+      <input
+        type="text"
+        [(ngModel)]="portion_receive"
+        (ngModelChange)="emitUpdate()"
+      />
+    </div>
+    <div class="box-category">
+      <div class="box-icon">
+        <span class="material-icons"> category </span>
+      </div>
+      <div>
+        <p>Categoria:</p>
+      </div>
+      <select
+        id="option-category"
+        [(ngModel)]="category_receive"
+        (ngModelChange)="emitUpdate()"
+      >
+        <option value="Postres">Postres</option>
+        <option value="Ensaladas">Ensaladas</option>
+        <option value="Desayunos">Desayunos</option>
+        <option value="Comidas">Comidas</option>
+        <option value="Bebidas">Bebidas</option>
+      </select>
+    </div>
+  </div>
+</ng-template>
